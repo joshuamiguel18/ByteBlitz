@@ -16,25 +16,32 @@ body {
 
 nav {
     background-color: #fff;
+    
     position: sticky;
+
     top: 0;
     left: 0;
     text-align: center;
     display: flex;
     align-items: center;
-    padding: 20px 3rem;
+    padding: 10px 3rem;
     justify-content: space-between;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     z-index: 99;
+
     
 }
 
 ul {
     list-style-type: none;
-
-
     display: block;
+    transition: all .5s ease;
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -ms-transition: all .5s ease;
+    -o-transition: all .5s ease;
 }
+
 
 li {
     display: inline-block;
@@ -58,6 +65,53 @@ nav ul li a:hover {
     border-bottom: 5px solid black; 
     transform: translateY(-5px);
 }
+
+.hamburger {
+cursor: pointer;
+position: absolute;
+right: 1rem;
+display: none;
+}
+
+.hamburger input {
+display: none;
+}
+
+.hamburger svg {
+/* The size of the SVG defines the overall size */
+height: 3em;
+/* Define the transition for transforming the SVG */
+transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+ul.show {
+    clip-path: circle(141.2% at 100% 0);
+}
+.line {
+fill: none;
+stroke: black;
+stroke-linecap: round;
+stroke-linejoin: round;
+stroke-width: 3;
+/* Define the transition for transforming the Stroke */
+transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+            stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.line-top-bottom {
+stroke-dasharray: 12 63;
+}
+
+.hamburger input:checked + svg {
+transform: rotate(-45deg);
+
+}
+
+.hamburger input:checked + svg .line-top-bottom {
+stroke-dasharray: 20 300;
+stroke-dashoffset: -32.42;
+}
+
 
 .logo {
     display: inline-block;
@@ -360,7 +414,7 @@ i {
     gap: 1.2em;
     flex-direction: row;
     flex-wrap: nowrap;
-    padding: 3em 0;
+    padding: 2em 0;
     overflow: hidden;
     
 }
@@ -370,7 +424,7 @@ i {
 }
 .products .item {
     flex: 1 0 220px;
-    padding: 10px;
+    padding: 10px 10px 20px;
     display: flex;
     gap: .5em;
     flex-direction: column;
@@ -407,12 +461,12 @@ i {
     -o-border-radius: 15px;
 }
 .products .item h1{
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
 }
 
 .advertisement {
-    padding: 3em 0;
+
     display: flex;
     flex-direction: row;
     gap: 1%;
@@ -424,7 +478,7 @@ i {
     border-radius: 20px;
     flex: 3 0 0;
     height: min-content;
-    padding: 12% 0;
+    padding: 10% 0;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -476,10 +530,259 @@ i {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: 80% bottom;
+    object-position: 100% bottom;
 
 
 }
+
+.about {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+}
+.about .header {
+    padding: 1.5em 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1em;
+}
+.about .header h1{
+    font-size: 4vmin;
+    font-weight: bold;
+    text-align: center;
+    font-size: 48px;
+}
+.about .header p{
+    width: min(800px, calc(100% - 1em));
+    text-align: center;
+    font-size: 18px;
+}
+.about .header button{
+    
+    margin-top: 1em;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 25px 40px;
+    text-transform: capitalize;
+    font-size: 1.1rem;
+    font-weight: bold;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    cursor: pointer;
+    background: rgba(0, 0, 0, .9);
+}
+.about .header button:hover {
+    background: rgba(0, 0, 0, 0.5);
+
+}
+
+.about .card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    flex-wrap: wrap;
+}
+.about .img-container {
+
+    position: relative;
+    flex: 1 0 220px;
+    height: min-content;
+    
+
+}
+.about img{
+    border-radius: 25px;
+    object-fit:cover;
+    background-color: #fff;
+    width: 100%;
+    aspect-ratio:3/3;
+
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -o-border-radius: 25px;
+}
+.about .accordion {
+    padding: 15px;
+    position: absolute;
+    border-radius: 20px;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 10px);
+    background-color: #fff;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+
+.accordion-input {
+    display: none;
+  }
+
+  .accordion-label {
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 5px 0;
+  }
+
+  .accordion-content {
+    font-size: 14px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .5s ease-in-out;
+    -webkit-transition: max-height .5s ease-in-out;
+    -moz-transition: max-height .5s ease-in-out;
+    -ms-transition: max-height .5s ease-in-out;
+    -o-transition: max-height .5s ease-in-out;
+}
+
+  .accordion-input:checked + .accordion-label + .accordion-content {
+    max-height: 200px; /* Adjust this value based on your content */
+  }
+  .accordion-input:checked + .accordion-label .arrow {
+    transform: rotate(180deg);
+  }
+
+
+
+  .newsletter {
+
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, .9);
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+    .newsletter .text {
+        flex: 1 0 40%;
+    }
+  .newsletter h2 {
+    color: gold;
+    margin-bottom: 20px;
+  }
+
+  .newsletter p {
+    color: #ccc;
+    margin-bottom: 20px;
+  }
+
+  .newsletter .subscribe-form {
+    flex: 1 0 60%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1em;
+  }
+
+  .newsletter input[type="email"] {
+    width: 100%;
+    padding: 25px;
+
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+    color: #333;
+    background-color: #ddd;
+  }
+
+  .newsletter button {
+
+    background-color: gold;
+    color: #1f1f1f;
+    padding: 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .newsletter button:hover {
+    background-color: #45a049;
+  }
+
+
+
+.question {
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3em 0;
+    background-color: rgba(0, 0, 0, 0.02);
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+
+}
+.question .header {
+    width: min(500px, calc(100% - 1em) );
+    height: 100%;
+    padding: 1.5em 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1em;
+}
+.question .header h1{
+    font-size: 5vmin;
+    font-weight: bold;
+    text-align: center;
+
+}
+.question .header p{
+    width: min(800px, calc(100% - 2em));
+    text-align: center;
+    font-size: 18px;
+}
+.question .header button{
+    
+    margin-top: 1em;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 25px 40px;
+    text-transform: capitalize;
+    font-size: 1.1rem;
+    font-weight: bold;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    cursor: pointer;
+    background: rgba(0, 0, 0, .9);
+}
+.question .header button:hover {
+    background: rgba(0, 0, 0, 0.5);
+
+}
+
+
 @keyframes move {
     0% {
         transform: translateX(0%);
@@ -494,6 +797,38 @@ i {
 }
 }
 @media only screen and (max-width: 850px) {
+
+    nav {
+        padding: 20px 1rem;
+    }
+    ul {
+        background-color: #fff;
+        clip-path: circle(0.4% at 100% 0);
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 100%;
+        width: calc(100% - 5px);
+        min-height: 40vh;
+        
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        -o-transform: translateX(-50%);
+    }
+    li {
+        display: block;
+        text-align: start;
+
+    }   
+    .hamburger {
+        display: block;
+    }
+    .hamburger svg {
+        
+        height: 2em;
+
+        }
     .features .card {
         flex-basis: 100%;
 
@@ -508,5 +843,13 @@ i {
         overflow: auto;
         cursor: grab;
     }
+    .newsletter .subscribe-form {
+        width: 100%;
+    }
+      .newsletter {
 
+        flex-direction:column;
+
+    }
   }
+  
