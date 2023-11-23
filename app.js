@@ -41,3 +41,11 @@ function currentSlide(index) {
 
 
 setInterval(nextSlide, 10000); // Change slide every 3 seconds
+
+var button = document.querySelector('.hamburger');
+button.addEventListener('click', (e) => {
+    e.preventDefault();
+    document.querySelector("ul.links").classList.toggle('show');
+    document.querySelector("svg").classList.toggle('rotate');
+    document.querySelector("svg .line-top-bottom").classList.toggle('animate');
+});

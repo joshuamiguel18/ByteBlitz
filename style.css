@@ -32,7 +32,7 @@ nav {
     
 }
 
-ul {
+nav ul {
     list-style-type: none;
     display: block;
     transition: all .5s ease;
@@ -43,7 +43,7 @@ ul {
 }
 
 
-li {
+nav li {
     display: inline-block;
     margin-left: 25px;
 }
@@ -77,11 +77,13 @@ display: none;
 display: none;
 }
 
-.hamburger svg {
-/* The size of the SVG defines the overall size */
-height: 3em;
-/* Define the transition for transforming the SVG */
-transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+.hamburger svg { /*ThesizeoftheSVGdefinestheoverallsize*/
+    height: 3em; /*DefinethetransitionfortransformingtheSVG*/
+    transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1); 
+    -webkit-transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1); 
+    -moz-transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1); 
+    -ms-transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1); 
+    -o-transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 ul.show {
@@ -102,14 +104,13 @@ transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
 stroke-dasharray: 12 63;
 }
 
-.hamburger input:checked + svg {
-transform: rotate(-45deg);
-
+svg.rotate {
+    transform: rotate(-45deg);
 }
 
-.hamburger input:checked + svg .line-top-bottom {
-stroke-dasharray: 20 300;
-stroke-dashoffset: -32.42;
+svg .line-top-bottom.animate {
+    stroke-dasharray: 20 300;
+    stroke-dashoffset: -32.42;
 }
 
 
@@ -130,10 +131,10 @@ stroke-dashoffset: -32.42;
 
 main {
     background-color: white;
-    height: 200vh;
+
     width: 100%;
 }
-section {
+section, footer {
 
     width: min(1200px, calc(100% - 1.5rem));
     margin: 3em auto;
@@ -705,13 +706,13 @@ i {
     border: none;
     border-radius: 5px;
     box-sizing: border-box;
-    color: #333;
-    background-color: #ddd;
+    color: #fff;
+    background-color: #333;
   }
 
   .newsletter button {
 
-    background-color: gold;
+    background-color: #fff;
     color: #1f1f1f;
     padding: 25px;
     border: none;
@@ -721,7 +722,7 @@ i {
   }
 
   .newsletter button:hover {
-    background-color: #45a049;
+    background-color: rgba(255, 255, 255, 0.5);
   }
 
 
@@ -782,6 +783,105 @@ i {
 
 }
 
+footer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1em;
+}
+footer .top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 30vh;
+    padding: 20px 0;
+    width: 100%;
+    gap: 5em;
+}
+footer .header {
+    flex: 1 0 40px; 
+}
+
+footer .bottom {
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 30px 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+footer .header p{
+    margin-top: 1em;
+}
+.footer-links {
+
+    color: #1f1f1f;
+    padding: 20px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 3.5em;
+    flex: 1 0 0px;
+
+}
+
+.footer-column {
+
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.footer-column h2 {
+    font-size: 18px;
+
+}
+.footer-column i {
+    padding: 5px;
+
+
+}
+footer a {
+
+    color: #1f1f1f;
+    text-decoration: none;
+    transition: all 1s ease-in;
+    -webkit-transition: all 1s ease-in;
+    -moz-transition: all 1s ease-in;
+    -ms-transition: all 1s ease-in;
+    -o-transition: all 1s ease-in;
+}
+footer a:hover {
+    text-decoration: underline;
+}
+
+
+
+footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+footer li {
+    margin-top: 15px;
+    display: block;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.social-icons img {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+
+
+
+
+
+
 
 @keyframes move {
     0% {
@@ -801,7 +901,7 @@ i {
     nav {
         padding: 20px 1rem;
     }
-    ul {
+    nav ul {
         background-color: #fff;
         clip-path: circle(0.4% at 100% 0);
         position: absolute;
@@ -816,7 +916,7 @@ i {
         -ms-transform: translateX(-50%);
         -o-transform: translateX(-50%);
     }
-    li {
+    nav li {
         display: block;
         text-align: start;
 
@@ -843,13 +943,38 @@ i {
         overflow: auto;
         cursor: grab;
     }
+
+
+    
+    .marquee h1 {
+        font-size: 1.5rem;
+        padding: 0 2rem;
+    }
+
     .newsletter .subscribe-form {
         width: 100%;
+        flex-direction: column;
+
     }
+    .newsletter button {
+        width: 100%;
+      }
       .newsletter {
 
         flex-direction:column;
 
+    }
+    footer .top {
+        flex-direction: column;
+        gap: 1em;
+    }
+    footer .header {
+
+        text-align: center;
+    }
+    footer .bottom {
+        flex-direction: column;
+        gap: 10px;
     }
   }
   
