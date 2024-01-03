@@ -16,9 +16,7 @@ body {
 
 nav {
     background-color: #fff;
-    
     position: sticky;
-
     top: 0;
     left: 0;
     text-align: center;
@@ -27,9 +25,7 @@ nav {
     padding: 10px 3rem;
     justify-content: space-between;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    z-index: 99;
-
-    
+    z-index: 99;  
 }
 
 nav ul {
@@ -152,12 +148,11 @@ section, footer {
 }
 
 .hero img {
-    border-radius: 40px;
-    width: 100%;
-    height: 600px;
-    aspect-ratio: 16/9;
-    object-fit: cover;
-    transition: transform 2s ease-in-out;
+    flex: 1 0 0px;
+    height: 400px;
+    object-fit: contain;
+    mix-blend-mode: color-burn;
+
 }
 
 .slider-container {
@@ -171,8 +166,99 @@ section, footer {
     transition: transform 1s ease-in-out;
 }
 .slide {
+    background: url(/images/pexels-pixabay-268533.jpg);
+    aspect-ratio: 16/9;
+    background-size: cover;
+    height:600px;
     min-width: 100%;
     transition: transform 1s ease-in-out, width 1s ease-in-out;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(90deg,rgba(230,245,248,.2) 0%,rgba(134,159,164,.2) 100%);
+    padding: 5em 4em;
+    border-radius: 20px;
+
+}
+
+.slide:nth-child(2) {
+    position: relative;
+    padding: 0;
+    overflow: hidden;
+}
+.slide video {
+    filter: brightness(30%);
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+
+}
+
+.slide .text {
+    z-index: 99;
+    flex: 1 0 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+}
+.slide .text:nth-child(2) {
+
+    align-items: center;
+
+}
+.slide .text:nth-child(2) {
+    color: #fff;
+}
+/* .text h1:nth-child(2) {
+    display: inline-block;
+
+    text-align: center;
+}
+.text p:nth-child(2) {
+    display: inline-block;
+    width: 250px;
+    text-align: center;
+}  */
+.slide .text h1 {
+    font-size: min(4rem, 8vmin);
+    font-weight: bold;
+}
+
+.slide .buttons {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.middle {
+    width: 350px;
+    text-align: center;
+}
+.slider button{
+    
+    margin-top: 1em;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 25px 50px;
+    text-transform: capitalize;
+    font-size: 1.1rem;
+    font-weight: bold;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    cursor: pointer;
+    background: rgba(0, 0, 0, .9);
+}
+
+.slider button:nth-child(2){
+    color: #1f1f1f;
+    background: rgba(255, 255, 255, .9);
+}
+.slider button:nth-child(1):hover {
+    background: rgba(0, 0, 0, 0.5);
+
 }
 
 .dot-container {
@@ -253,7 +339,7 @@ i {
 }
 .features img {
     aspect-ratio: 1/1;
-    object-fit: cover;
+    object-fit: contain;
     height: 90px;
     padding: 10px;
     background-color: #fff;
@@ -479,7 +565,7 @@ i {
     border-radius: 20px;
     flex: 3 0 0;
     height: min-content;
-    padding: 10% 0;
+    padding: 5rem 0;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -493,7 +579,7 @@ i {
     color: #fff;
 
     text-transform: capitalize;
-    font-size: 10vmin;
+    font-size: 5rem;
     font-weight: bold;
 }
 .advertisement .text button {
@@ -550,7 +636,7 @@ i {
     gap: 1em;
 }
 .about .header h1{
-    font-size: 4vmin;
+    font-size: 4rem;
     font-weight: bold;
     text-align: center;
     font-size: 48px;
@@ -751,7 +837,7 @@ i {
     gap: 1em;
 }
 .question .header h1{
-    font-size: 5vmin;
+    font-size: 3rem;
     font-weight: bold;
     text-align: center;
 
@@ -921,6 +1007,7 @@ footer li {
         text-align: start;
 
     }   
+
     .hamburger {
         display: block;
     }
@@ -929,6 +1016,27 @@ footer li {
         height: 2em;
 
         }
+
+
+        .hero img {
+            display: none;
+        
+        }
+        .slide .text{
+            align-items: center;
+        }
+        .slide .text h1{
+            text-align: center;
+        }
+        .slide .text p{
+            text-align: center;
+        }
+        .slide .buttons {
+            flex-direction: column;
+
+        }
+        
+
     .features .card {
         flex-basis: 100%;
 
