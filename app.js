@@ -40,7 +40,7 @@ function currentSlide(index) {
 }
 
 
-setInterval(nextSlide, 10000); // Change slide every 3 seconds
+// setInterval(nextSlide, 10000); // Change slide every 3 seconds
 
 var button = document.querySelector('.hamburger');
 button.addEventListener('click', (e) => {
